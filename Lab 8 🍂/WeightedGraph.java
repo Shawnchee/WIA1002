@@ -196,11 +196,69 @@ public class WeightedGraph <T extends Comparable<T>, N extends Comparable<N>>{
         return false;
     }
 
+    public boolean addUndirectedEdge (T source, T destination, N weight){
+        return addEdge(source, destination, weight) && addEdge(destination, source, weight);
+    }
+
+    public boolean removeEdge(T source, T destination){
+        
+
+    }
 
 
 
+    public N getEdgeWeight (T source, T destination){
+        N notFound = null;
+        if (head == null)
+        return notFound;
+        if (!hasVertex(source) || !hasVertex(destination)) return notFound;
+        Vertex <T,N> sourceVertex = head;
+        while (sourceVertex!=null){
+            if (sourceVertex.vertexInfo.compareTo(source)==0){
+                Edge <T,N> currentEdge = sourceVertex.firstEdge;
+                while (currentEdge != null){
+                    if (currentEdge.toVertex.vertexInfo.compareTo(destination) == 0)
+                    return currentEdge.weight; // found destination vertex
+                    currentEdge = currentEdge.nextEdge;
+                }
+            }
+            sourceVertex = sourceVertex.nextVertex;
+        }
+        return notFound;
+    }
 
-    
+    public ArrayList <T> getNeighbours (T v){
+        if (!hasVertex(v)) return null;
+        ArrayList<T> ls = new ArrayList<>();
+        Vertex <T,N> temp = head ;
+        while (temp!=null){
+            if (temp.vertexInfo.compareTo(v) == 0 ){
+                Edge <T,N> currentEdge = temp.firstEdge;
+                while (currentEdge!= null){
+                    ls.add(currentEdge.toVertex.vertexInfo);
+                    currentEdge = currentEdge.nextEdge;
+                }
+            }
+            temp = temp.nextVertex;
+        }
+        return ls;
+    }
+
+    public void printEdges(){
+        Vertex<T,N> current = head ;
+        while (current!=null){
+            System.out.println("# " +  current.vertexInfo + " : ");
+            Edge<T,N> currentEdge = current.firstEdge;
+            while (currentEdge != null){
+                System.out.print("[ " + current.vertexInfo + "," + currentEdge.toVertex.vertexInfo + "] ");
+            currentEdge = currentEdge.nextEdge;
+            }
+            System.out.println();
+            current = current.nextVertex;
+        }
+    }
+
+
 }
 
 
