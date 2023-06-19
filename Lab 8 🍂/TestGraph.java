@@ -27,14 +27,17 @@ public class TestGraph {
         System.out.println("add edge Tawau - Alor Setar: " + graph1.addEdge("Tawau", "Alor Setar"));
         System.out.println("add edge Kuching - Tawau: " + graph1.addEdge("Kuching", "Tawau"));
         System.out.println("add edge Langkawi - Ipoh: " + graph1.addEdge("Langkawi", "Ipoh"));
+        System.out.println();
 
         System.out.println("has edge from Kuching to Melaka?" + graph1.hasEdge("Kuching", "Melaka"));
         System.out.println("has edge from Melaka to Langkawi?" + graph1.hasEdge("Melaka", "Kuching"));
         System.out.println("has edge from Ipoh to Langkawi?" + graph1.hasEdge("Ipoh", "Langkawi"));
+        System.out.println();
 
         System.out.println("In and out degree for Kuching is " + graph1.getIndeg("Kuching") + " and " + graph1.getOutdeg("Kuching"));
         System.out.println("In and out degree for Penang is " + graph1.getIndeg("Penang") + " and " + graph1.getOutdeg("Penang"));
         System.out.println("In and out degree for Ipoh is " + graph1.getIndeg("Ipoh") + " and " + graph1.getOutdeg("Ipoh"));
+        System.out.println();
 
         System.out.println("Neighbours of Kuching: " + graph1.getNeighbours("Kuching"));
         System.out.println("\nPrint Edges: ");
