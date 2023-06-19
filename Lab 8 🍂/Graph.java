@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-public class WeightedGraph <T extends Comparable<T>, N extends Comparable<N>>{
+public class Graph <T extends Comparable<T>, N extends Comparable<N>>{
     private Vertex <T,N> head ;
     private int size;
 
-    public WeightedGraph(){
+    public Graph(){
         head = null;
         size = 0;
     }
@@ -38,18 +38,15 @@ public class WeightedGraph <T extends Comparable<T>, N extends Comparable<N>>{
 
     public class Edge<T extends Comparable<T>, N extends Comparable<N>>{
         Vertex <T,N> toVertex;
-        N weight ;
         Edge<T,N> nextEdge;
 
         public Edge(){
             toVertex = null;
-            weight = null;
             nextEdge = null;
         
         }
-        public Edge (Vertex<T,N> destination, N w , Edge<T,N> nextEdge){
+        public Edge (Vertex<T,N> destination, Edge<T,N> nextEdge){
             toVertex = destination;
-            weight = w;
             this.nextEdge = nextEdge;
         }
     }
@@ -169,7 +166,7 @@ public class WeightedGraph <T extends Comparable<T>, N extends Comparable<N>>{
             return false;
         }
 
-        public boolean addEdge (T source, T destination, N w){
+        public boolean addEdge (T source, T destination){
             if (head == null) return false;
             if (!hasVertex(source) || !hasVertex(destination)) return false;
 
@@ -182,7 +179,7 @@ public class WeightedGraph <T extends Comparable<T>, N extends Comparable<N>>{
                 if (destinationVertex.vertexInfo.compareTo(destination) == 0 ){
                     // found destination vertex!
                 Edge <T,N> currentEdge = sourceVertex.firstEdge;
-                Edge <T,N> newEdge = new Edge<>(destinationVertex, w, currentEdge);
+                Edge <T,N> newEdge = new Edge<>(destinationVertex, currentEdge);
                 sourceVertex.firstEdge = newEdge;
                 sourceVertex.outdeg++;
                 destinationVertex.indeg++;
@@ -196,8 +193,8 @@ public class WeightedGraph <T extends Comparable<T>, N extends Comparable<N>>{
         return false;
     }
 
-    public boolean addUndirectedEdge (T source, T destination, N weight){
-        return addEdge(source, destination, weight) && addEdge(destination, source, weight);
+    public boolean addUndirectedEdge (T source, T destination){
+        return addEdge(source, destination) && addEdge(destination, source);
     }
 
     public Edge<T,N> removeEdge(T source, T destination){
@@ -230,28 +227,6 @@ public class WeightedGraph <T extends Comparable<T>, N extends Comparable<N>>{
     }
 
 
-
-
-
-    public N getEdgeWeight (T source, T destination){
-        N notFound = null;
-        if (head == null)
-        return notFound;
-        if (!hasVertex(source) || !hasVertex(destination)) return notFound;
-        Vertex <T,N> sourceVertex = head;
-        while (sourceVertex!=null){
-            if (sourceVertex.vertexInfo.compareTo(source)==0){
-                Edge <T,N> currentEdge = sourceVertex.firstEdge;
-                while (currentEdge != null){
-                    if (currentEdge.toVertex.vertexInfo.compareTo(destination) == 0)
-                    return currentEdge.weight; // found destination vertex
-                    currentEdge = currentEdge.nextEdge;
-                }
-            }
-            sourceVertex = sourceVertex.nextVertex;
-        }
-        return notFound;
-    }
 
     public ArrayList <T> getNeighbours (T v){
         if (!hasVertex(v)) return null;
