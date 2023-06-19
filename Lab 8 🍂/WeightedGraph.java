@@ -168,5 +168,39 @@ public class WeightedGraph <T extends Comparable<T>, N extends Comparable<N>>{
             }
             return false;
         }
+
+        public boolean addEdge (T source, T destination, N w){
+            if (head == null) return false;
+            if (!hasVertex(source) || !hasVertex(destination)) return false;
+
+            Vertex <T,N> sourceVertex = head ;
+            while (sourceVertex!= null){
+                if (sourceVertex.vertexInfo.compareTo(source) == 0 ) {
+                    // reached source vertex and found it!
+            Vertex <T,N> destinationVertex = head ;
+            while (destinationVertex != null){
+                if (destinationVertex.vertexInfo.compareTo(destination) == 0 ){
+                    // found destination vertex!
+                Edge <T,N> currentEdge = sourceVertex.firstEdge;
+                Edge <T,N> newEdge = new Edge<>(destinationVertex, w, currentEdge);
+                sourceVertex.firstEdge = newEdge;
+                sourceVertex.outdeg++;
+                destinationVertex.indeg++;
+                return true;
+                }
+                destinationVertex = destinationVertex.nextVertex;
+            }
+            }
+            sourceVertex = sourceVertex.nextVertex;
+        }
+        return false;
     }
+
+
+
+
+
+    
+}
+
 
