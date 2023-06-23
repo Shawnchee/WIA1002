@@ -3,7 +3,11 @@ public class binarySearch {
         int [] array = {2,3,6,7,1,5,9,8};
         int target = 9;
         int result = BinarySearch(array, target);
+        if (result != -1)
         System.out.println(target+" is found at index: " + result);
+        else
+        System.out.println(target + " is not found.");
+
     }
 
     public static int BinarySearch(int[] array, int target) {
