@@ -4,7 +4,6 @@ public class Q4 {
         int [] arr = {10,34,2,56,7,67,88,42};
 
         insertionSort(arr);
-
         System.out.print("After sorting: ");
         for (int i : arr){
             System.out.print(i + " ");
