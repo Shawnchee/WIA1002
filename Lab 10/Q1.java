@@ -1,6 +1,6 @@
 public class Q1 {
     public static void main(String[] args) {
-        int [] arr = {45, 7, 2, 8, 19, 3 , 6,10,23,22,12,15,71};
+        int [] arr = {45, 7, 2, 8, 19, 3 };
 
         selectionSortSmallest(arr);
         System.out.println("After sorting:");
