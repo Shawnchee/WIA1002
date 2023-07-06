@@ -16,6 +16,7 @@ public class PalindromeQueue {
         for (int i = 0 ; i < input.length(); i ++){
             reversed += queue.remove();
         }
+
         
         if (input.equals(reversed)) System.out.println("The string is palindrome");
         else System.out.println("The string is not a palindrome");

@@ -1,10 +1,9 @@
 import java.util.LinkedList;
 
 public class MyQueue<E> {
-    LinkedList <E> queue ;
+    LinkedList <E> queue = new LinkedList<>();
 
     public MyQueue(){
-        this.queue = new LinkedList<>();
     }
 
     public MyQueue(E[] e){

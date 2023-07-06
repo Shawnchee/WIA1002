@@ -10,7 +10,7 @@ public class Q1 {
     }
 
     public static void selectionSortSmallest(int[] arr) {
-        for (int i = 0 ; i < arr.length ; i ++){
+        for (int i = 0 ; i < arr.length; i ++){
             int min = i ; 
             for (int j = i +1 ; j <arr.length ; j ++){
                 if (arr[min] > arr[j]){

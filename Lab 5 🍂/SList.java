@@ -11,7 +11,7 @@ import java.util.NoSuchElementException;
  * @author aykay
  */
 public class SList <E>{
-    E element ; 
+ //   E element ; 
     SNode<E>  head  ;
     SNode<E> tail ;
     int size ;
@@ -19,6 +19,7 @@ public class SList <E>{
     
     public void appendEnd (E e){
         SNode<E> newNode = new SNode<>(e); 
+    
         if (head == null && tail == null ){
             head = tail = newNode ;            
         }

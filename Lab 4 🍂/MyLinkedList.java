@@ -1,17 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package wia1002_l4;
 
-/**
- *
- * @author aykay
- * @param <E>
- */
 import java.util.NoSuchElementException;
 public class MyLinkedList<E> {
-
+    private Node<E> next;
     private Node<E> head;
     private Node<E> tail;
     private int size = 0;
@@ -37,7 +27,7 @@ public class MyLinkedList<E> {
             head =  tail = newNode;
         } else {
             tail.next = newNode;
-            tail = tail.next;
+            tail = newNode;
         }
         size++;
     }
@@ -150,9 +140,7 @@ public class MyLinkedList<E> {
         if (size == 0) {
             return null;
         } else {
-            Node<E> current = new Node<>();
-            current = head;
-            return current.element;
+            return head.element;
         }
     }
 
@@ -165,8 +153,7 @@ public class MyLinkedList<E> {
             for (int i = 0; i < size - 1; i++) {
                 current = current.next;     // at the tail now
             }
-            tail = current;
-            return tail.element;
+            return current.element;
         }
     }
 
