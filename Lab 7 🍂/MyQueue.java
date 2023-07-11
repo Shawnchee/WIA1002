@@ -15,7 +15,6 @@ public class MyQueue<E> {
     public void enqueue (E e){
         queue.addLast(e);
     }
-
     public E dequeue(){
         E top = queue.removeFirst();
         return top;

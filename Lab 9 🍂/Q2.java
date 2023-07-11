@@ -20,8 +20,5 @@ public class Q2 {
 
             permuteString(string, ans + ch);
         }
-
-
-
     }
 }

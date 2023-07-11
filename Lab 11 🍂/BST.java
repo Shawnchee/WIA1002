@@ -44,8 +44,7 @@ public class BST<E extends Comparable<E>> {
         }
        }
        size++;
-       return true;
-            
+       return true;  
     }
 
 

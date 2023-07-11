@@ -15,7 +15,4 @@ public class Circle implements Comparable<Circle> {
     public String toString(){
         return Double.toString(this.radius);
     }
-    
-    
-    
 }

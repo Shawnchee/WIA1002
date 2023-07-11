@@ -40,7 +40,6 @@ class MyStack <E> {
             if (stack.get(i)== element ) return true ;
         }
         return false ; 
-
         // or  return stack.contains(o)
     }
     }

@@ -155,7 +155,6 @@ public class ArrayBag<T> implements BagInterface<T> {
                 }
             }
         }
-
         // A: 1, 1, 2, 2, 3, 3
         // B: 1, 2, 3
         // 1, null, 2, null, 3, null

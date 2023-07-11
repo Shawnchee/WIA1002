@@ -24,7 +24,6 @@ public class Graph <T extends Comparable<T>, N extends Comparable<N>>{
         outdeg = 0;
         nextVertex = null;
         firstEdge = null;
-
     }
 
     public Vertex(T vertexInfo , Vertex<T,N> nextVertex){

@@ -5,7 +5,6 @@ public class MyLinkedList<E> {
     private Node<E> head;
     private Node<E> tail;
     private int size = 0;
-
     public MyLinkedList() {
 
     }

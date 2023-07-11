@@ -145,6 +145,5 @@ public class DoublyLinkedList<E> {
         temp = null;
         tail.prev = tail.next = null;
         size = 0 ;
-      
     }
 }
